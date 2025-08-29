@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+:root {
+    --base-color: white;
+    --base-variant: #d1d1d1;
+    --text-color: #111111;
+    --secondary-text: grey;
+    --icon-color: black;
+}
+
+.darkmode {
+    --base-color: #202020;
+    --base-variant: #363636;
+    --text-color: #e6e6e6;
+    --secondary-text: hsl(0, 0%, 60%);
+    --icon-color: #e6e6e6;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +24,8 @@
 
 body {
     font-family: "Rubik", sans-serif;
+    background-color: var(--base-color);
+    color: var(--text-color);
 }
 
 h1 {
@@ -52,11 +70,12 @@ h1 {
 
 .contact-item>a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
 }
 
 .icon {
     max-width: 30px;
+    fill: var(--icon-color);
 }
 
 .chayanne {
@@ -68,7 +87,7 @@ h1 {
 .chayanne p {
     text-align: center;
     font-size: 0.80rem;
-    color: #808080;
+    color: var(--secondary-text);
 }
 
 .chayanne img {
@@ -76,6 +95,40 @@ h1 {
     aspect-ratio: 5 / 4;
     object-fit: cover;
     border-radius: 12px;
+}
+
+.theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-switch>svg {
+    fill: var(--icon-color);
+}
+
+.theme-switch>svg:last-child {
+    display: none;
+}
+
+.darkmode .theme-switch>svg:first-child {
+    display: none;
+}
+
+.darkmode .theme-switch>svg:last-child {
+    display: block;
 }
 
 @media (width <= 1000px) {
